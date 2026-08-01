@@ -1,35 +1,31 @@
-class PhotoModel {
-  final int albumId;
+class TodoModel {
+  final int userId;
   final int id;
   final String title;
-  final String url;
-  final String thumbnailUrl;
+  final bool completed;
 
-  PhotoModel({
-    required this.albumId,
+  TodoModel({
+    required this.userId,
     required this.id,
     required this.title,
-    required this.url,
-    required this.thumbnailUrl,
+    required this.completed,
   });
 
-  factory PhotoModel.fromJson(Map<String, dynamic> json) {
-    return PhotoModel(
-      albumId: json['albumId'] ?? 0,
+  factory TodoModel.fromJson(Map<String, dynamic> json) {
+    return TodoModel(
+      userId: json['userId'] ?? 0,
       id: json['id'] ?? 0,
       title: json['title'] ?? '',
-      url: json['url'] ?? '',
-      thumbnailUrl: json['thumbnailUrl'] ?? '',
+      completed: json['completed'] ?? false,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'albumId': albumId,
+      'userId': userId,
       'id': id,
       'title': title,
-      'url': url,
-      'thumbnailUrl': thumbnailUrl,
+      'completed': completed,
     };
   }
 }

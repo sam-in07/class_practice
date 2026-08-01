@@ -2,28 +2,26 @@ import 'package:get/get.dart';
 import '../models/todo_model.dart';
 import '../network/todo_api_service.dart';
 
-class PhotoController extends GetxController {
-  final PhotoApiService _apiService = PhotoApiService();
+class TodoController extends GetxController {
+  final TodoApiService _apiService = TodoApiService();
 
-  final RxList<PhotoModel> _photos = <PhotoModel>[].obs;
+  final RxList<TodoModel> _todos = <TodoModel>[].obs;
   final RxBool _isLoading = false.obs;
 
-  List<PhotoModel> get photos => _photos;
+  List<TodoModel> get todos => _todos;
   bool get isLoading => _isLoading.value;
 
   @override
   void onInit() {
     super.onInit();
-    // Retrieve albumId if passed via Get.arguments, else fetch all
-    int? albumId = Get.arguments as int?;
-    fetchPhotos(albumId: albumId);
+    fetchTodos();
   }
 
-  void fetchPhotos({int? albumId}) async {
+  void fetchTodos() async {
     _isLoading.value = true;
     try {
-      var result = await _apiService.fetchPhotos(albumId: albumId);
-      _photos.assignAll(result);
+      var result = await _apiService.fetchTodos();
+      _todos.assignAll(result);
     } catch (e) {
       Get.snackbar("Error", e.toString());
     } finally {

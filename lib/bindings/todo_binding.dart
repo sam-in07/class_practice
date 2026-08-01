@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import '../controllers/todo_controller.dart';
 
-class PhotoBinding extends Bindings {
+class TodoBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => PhotoController());
+    Get.lazyPut(() => TodoController());
   }
 }
