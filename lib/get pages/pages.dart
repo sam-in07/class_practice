@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 // import '../bindings/comment_binding.dart';
-import '../bindings/todo_binding.dart';
+import '../bindings/user_binding.dart';
 import '../bindings/counter_binding.dart';
 import '../bindings/post_binding.dart';
 // import '../pages/comments_page.dart';
-import '../pages/todo_page.dart';
+import '../pages/user_page.dart';
 import '../pages/counter.dart';
 import '../pages/posts.dart';
 
@@ -20,9 +20,9 @@ class Pages {
       //   binding: CommentBinding(),
       // ),
       GetPage(
-        name: '/todos',
-        page: () => const TodosPage(),
-        binding: TodoBinding(),
+        name: '/users',
+        page: () => const UsersPage(),
+        binding: UserBinding(),
       )
     ];
   }

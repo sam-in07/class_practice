@@ -1,31 +1,76 @@
-class TodoModel {
-  final int userId;
+class UserModel {
   final int id;
-  final String title;
-  final bool completed;
+  final String name;
+  final String username;
+  final String email;
+  final String phone;
+  final String website;
+  final Address address;
+  final Company company;
 
-  TodoModel({
-    required this.userId,
+  UserModel({
     required this.id,
-    required this.title,
-    required this.completed,
+    required this.name,
+    required this.username,
+    required this.email,
+    required this.phone,
+    required this.website,
+    required this.address,
+    required this.company,
   });
 
-  factory TodoModel.fromJson(Map<String, dynamic> json) {
-    return TodoModel(
-      userId: json['userId'] ?? 0,
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
       id: json['id'] ?? 0,
-      title: json['title'] ?? '',
-      completed: json['completed'] ?? false,
+      name: json['name'] ?? '',
+      username: json['username'] ?? '',
+      email: json['email'] ?? '',
+      phone: json['phone'] ?? '',
+      website: json['website'] ?? '',
+      address: Address.fromJson(json['address'] ?? {}),
+      company: Company.fromJson(json['company'] ?? {}),
     );
   }
+}
 
-  Map<String, dynamic> toJson() {
-    return {
-      'userId': userId,
-      'id': id,
-      'title': title,
-      'completed': completed,
-    };
+// Sub-class 1: Address
+class Address {
+  final String street;
+  final String suite;
+  final String city;
+  final String zipcode;
+
+  Address({
+    required this.street,
+    required this.suite,
+    required this.city,
+    required this.zipcode,
+  });
+
+  factory Address.fromJson(Map<String, dynamic> json) {
+    return Address(
+      street: json['street'] ?? '',
+      suite: json['suite'] ?? '',
+      city: json['city'] ?? '',
+      zipcode: json['zipcode'] ?? '',
+    );
+  }
+}
+
+// Sub-class 2: Company
+class Company {
+  final String name;
+  final String catchPhrase;
+
+  Company({
+    required this.name,
+    required this.catchPhrase,
+  });
+
+  factory Company.fromJson(Map<String, dynamic> json) {
+    return Company(
+      name: json['name'] ?? '',
+      catchPhrase: json['catchPhrase'] ?? '',
+    );
   }
 }

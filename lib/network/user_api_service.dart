@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import '../models/user_model.dart';
 
-class TodoApiService {
+class UserApiService {
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: 'https://jsonplaceholder.typicode.com',
@@ -10,15 +10,15 @@ class TodoApiService {
     ),
   );
 
-  Future<List<TodoModel>> fetchTodos() async {
+  Future<List<UserModel>> fetchUsers() async {
     try {
-      var response = await _dio.get('/todos');
+      var response = await _dio.get('/users');
 
       if (response.statusCode == 200) {
         List<dynamic> data = response.data;
-        return data.map((item) => TodoModel.fromJson(item)).toList();
+        return data.map((item) => UserModel.fromJson(item)).toList();
       } else {
-        throw Exception('Failed to load todos');
+        throw Exception('Failed to load users');
       }
     } catch (e) {
       throw e.toString();
