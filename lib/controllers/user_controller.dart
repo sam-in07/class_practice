@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import '../models/todo_model.dart';
-import '../network/todo_api_service.dart';
+import '../models/user_model.dart';
+import '../network/user_api_service.dart';
 
 class TodoController extends GetxController {
   final TodoApiService _apiService = TodoApiService();

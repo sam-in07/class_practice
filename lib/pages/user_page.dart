@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/todo_controller.dart';
+import '../controllers/user_controller.dart';
 
 class TodosPage extends GetView<TodoController> {
   const TodosPage({super.key});
