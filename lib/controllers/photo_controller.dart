@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import '../models/album_model.dart';
-import '../network/album_api_service.dart';
+import '../models/photo_model.dart';
+import '../network/photo_api_service.dart';
 
 class AlbumController extends GetxController {
   final AlbumApiService _apiService = AlbumApiService();

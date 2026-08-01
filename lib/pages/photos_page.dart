@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/album_controller.dart';
+import '../controllers/photo_controller.dart';
 
 class AlbumsPage extends GetView<AlbumController> {
   const AlbumsPage({super.key});

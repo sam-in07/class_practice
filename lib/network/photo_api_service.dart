@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../models/album_model.dart';
+import '../models/photo_model.dart';
 
 class AlbumApiService {
   final Dio _dio = Dio(
