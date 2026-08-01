@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/photo_controller.dart';
+import '../controllers/todo_controller.dart';
 
 class PhotosPage extends GetView<PhotoController> {
   const PhotosPage({super.key});

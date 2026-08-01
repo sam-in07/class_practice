@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import '../models/photo_model.dart';
-import '../network/photo_api_service.dart';
+import '../models/todo_model.dart';
+import '../network/todo_api_service.dart';
 
 class PhotoController extends GetxController {
   final PhotoApiService _apiService = PhotoApiService();
