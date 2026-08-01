@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import '../models/photo_model.dart';
 
-class AlbumApiService {
+class PhotoApiService {
   final Dio _dio = Dio(
     BaseOptions(
       baseUrl: 'https://jsonplaceholder.typicode.com',
@@ -10,15 +10,17 @@ class AlbumApiService {
     ),
   );
 
-  Future<List<AlbumModel>> fetchAlbums() async {
+  // Fetch photos (supports filtering by albumId if passed)
+  Future<List<PhotoModel>> fetchPhotos({int? albumId}) async {
     try {
-      var response = await _dio.get('/albums');
+      final queryParams = albumId != null ? {'albumId': albumId} : null;
+      var response = await _dio.get('/photos', queryParameters: queryParams);
 
       if (response.statusCode == 200) {
         List<dynamic> data = response.data;
-        return data.map((item) => AlbumModel.fromJson(item)).toList();
+        return data.map((item) => PhotoModel.fromJson(item)).toList();
       } else {
-        throw Exception('Failed to load albums');
+        throw Exception('Failed to load photos');
       }
     } catch (e) {
       throw e.toString();

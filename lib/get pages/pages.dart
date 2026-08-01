@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 // import '../bindings/comment_binding.dart';
-import '../bindings/album_binding.dart';
+import '../bindings/photo_binding.dart';
 import '../bindings/counter_binding.dart';
 import '../bindings/post_binding.dart';
 // import '../pages/comments_page.dart';
-import '../pages/albums_page.dart';
+import '../pages/photos_page.dart';
 import '../pages/counter.dart';
 import '../pages/posts.dart';
 
@@ -20,9 +20,9 @@ class Pages {
       //   binding: CommentBinding(),
       // ),
       GetPage(
-        name: '/albums',
-        page: () => const AlbumsPage(),
-        binding: AlbumBinding(),
+        name: '/photos',
+        page: () => const PhotosPage(),
+        binding: PhotoBinding(),
       )
     ];
   }
